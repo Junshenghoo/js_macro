@@ -2,6 +2,7 @@ import board
 import digitalio
 import busio
 import usb_hid
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.type_string import type_string
@@ -12,6 +13,8 @@ from adafruit_displayio_ssd1306 import SSD1306
 import terminalio
 import json
 import time
+
+prototype = 0
 
 displayio.release_displays()
 
@@ -72,8 +75,12 @@ def display_start_up(text, display):
     
 def setup_button():
     # Define GPIO pins for each button
-    button_pins = [board.GP0, board.GP1, board.GP2, board.GP3, board.GP4,
-                   board.GP5, board.GP6, board.GP7, board.GP8, board.GP9]
+    if prototype:
+        button_pins = [board.GP0, board.GP1, board.GP2, board.GP3, board.GP4,
+                    board.GP5, board.GP6, board.GP7, board.GP8, board.GP9]
+    else:
+        button_pins = [board.GP8, board.GP17, board.GP16, board.GP15, board.GP14,
+                   board.GP13, board.GP12, board.GP11, board.GP10, board.GP9]
     buttons = []
 
     # Set up each button
@@ -86,8 +93,9 @@ def setup_button():
     # Debounce tracker to avoid repeat key spam
     last_state = [False] * len(buttons)
     kbd = Keyboard(usb_hid.devices)
+    layout = KeyboardLayoutUS(kbd)
     
-    return last_state, buttons, kbd
+    return last_state, buttons, kbd, layout
 
 def pretty_print_json(obj, indent=0):
     for key, value in obj.items():
@@ -120,6 +128,10 @@ def execute_key(key_data, kbd, i):
     key_name = f"key_{i}"
     print(key_name)
     
+    if key_name not in key_data:
+        print(f"No data for {key_name}, ignoring.")
+        return
+
     for data in key_data[key_name]:
         if "cmd" in data:
             key_list = []
@@ -131,12 +143,8 @@ def execute_key(key_data, kbd, i):
             kbd.send(*key_list)
             time.sleep(0.01)
         elif "str" in data:
-            type_string(kbd, str(data["str"]))
-            #print(data["str"])
+            layout.write(str(data["str"]))  # Type whole string at once
             time.sleep(0.01)
-        # elif "insert_str" in data:
-        #     modified_json("keycode_map_config.json")
-        #     time.sleep(0.01)
 
 def load_keycode_map(filepath):
     with open(filepath, "r") as file:
@@ -151,18 +159,7 @@ def get_max_mode():
     max_mode = max([int(k[4:]) for k in mode_keys])
     return max_mode
 
-# def modified_json(filepath):
-#     with open(filepath, 'r') as f:
-#         data = json.load(f)
-    
-#     for item in data["mode3"]:
-#         if "key_3" in item:
-#             item["key_3"][0]["str"] = "99"
-
-#     with open(filepath, 'w') as f:
-#         json.dump(data, f, indent=2)
-
-last_state, buttons, kbd = setup_button()
+last_state, buttons, kbd, layout = setup_button()
 display = setup_display()
 #display_start_up("Macro Keyboard", display)
 display_img()
@@ -195,6 +192,6 @@ while True:
             last_state[i] = False 
             time_counter = 0
 
-    if time_counter == 1000:
+    if time_counter == 100:
         display_img()
     time.sleep(0.01)

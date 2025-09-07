@@ -1,6 +1,6 @@
 {
   "mode1": {
-    "name": "Excel Mode",
+    "name": "Mode 1",
     "keys": [
       {
         "key_1": [
@@ -48,14 +48,15 @@
       },
       {
         "key_9": [
-          {"str": "6043010"},
-          {"cmd": ["ENTER"]}
+          {"str": "hello"},
+          {"cmd": ["ENTER"]},
+          {"str": "world"}
         ]
       }
     ]
   },
   "mode2": {
-    "name": "Tessy",
+    "name": "Two",
     "keys": [
       {
         "key_1": [
@@ -75,24 +76,6 @@
       {
         "key_4": [
           {"str": "Test Case ID: IT_PDC_00"},
-          {"cmd": ["ENTER"]},
-          {"str": "Overview: "},
-          {"cmd": ["ENTER"]},
-          {"cmd": ["ENTER"]},
-          {"str": "Input:"},
-          {"cmd": ["ENTER"]},
-          {"str": "N/A"},
-          {"cmd": ["ENTER"]},
-          {"cmd": ["ENTER"]},
-          {"str": "Output:"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
           {"cmd": ["ENTER"]}
         ]
       },
@@ -122,7 +105,7 @@
       },
       {
         "key_9": [
-          {"str": "6043010"},
+          {"str": "ok"},
           {"cmd": ["ENTER"]}
         ]
       }
@@ -133,7 +116,7 @@
     "keys": [
       {
         "key_1": [
-          {"str": "LXX11-157"}
+          {"str": "1"}
         ]
       },
       {

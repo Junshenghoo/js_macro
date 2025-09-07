@@ -10,6 +10,8 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt, QTimer
 
+current_key =0
+
 def find_circuitpy_drive(label="CIRCUITPY"):
     drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
     for d in drives:
@@ -141,6 +143,7 @@ class KeypadDemo(QWidget):
         self.active_key_name = f"key_{key}"
         self.bottom_title.setText(f"Mode: {self.mode_name}\nButton: {key}")
         self.clear_all_rows()
+        current_key = key
         
         key_name = f"key_{key}"
         if key_name in self.keys_dict:
@@ -150,6 +153,7 @@ class KeypadDemo(QWidget):
                     self.add_cmd_row(", ".join(map(str, data["cmd"])))
                 if "str" in data:
                     self.add_string_row(str(data["str"]))
+                    
     def rename(self):
         new_name, ok = QInputDialog.getText(self, "Rename Mode", "Enter new mode name:")
 
@@ -312,9 +316,6 @@ class KeypadDemo(QWidget):
         self.bottom_layout.insertLayout(self.bottom_layout.count() - 1, cmd_row)
         self.rows.append((cmd_row, "cmd"))   # mark as cmd row
 
-
-
-
     def delete_last_row(self):
 
         if not self.rows:
@@ -382,6 +383,9 @@ class KeypadDemo(QWidget):
             json.dump(data, f, indent=4)
 
         print(f"Saved {self.active_key_name}:", data_list)
+        self.mode_name, self.keys_dict, self.max_mode = self.read_config()
+        number_only = self.active_key_name.replace("key_", "")
+        self.bottom_title.setText(f"Mode: {self.mode_name}\nButton: {number_only}")
 
     def read_config(self):
         with open(CONFIG_PATH, "r") as file:
