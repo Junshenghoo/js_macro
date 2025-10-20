@@ -41,7 +41,7 @@ class KeypadDemo(QWidget):
         self.image_container = QWidget(self)
         self.label = QLabel(self.image_container)
 
-        pixmap = QPixmap("macro.png")
+        pixmap = QPixmap("app/macro.png")
         self.label.setPixmap(pixmap)
         self.label.resize(pixmap.width(), pixmap.height())
         self.image_container.setFixedSize(pixmap.size())
@@ -536,7 +536,7 @@ if __name__ == "__main__":
         msg_window.setWindowTitle("Macro Not Found")
         layout = QVBoxLayout(msg_window)
         label = QLabel()
-        pixmap = QPixmap("not_found.png")
+        pixmap = QPixmap("app/not_found.png")
         label.setPixmap(pixmap)
         layout.addWidget(label)
         QTimer.singleShot(2000, msg_window.close)
