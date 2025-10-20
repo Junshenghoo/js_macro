@@ -1,181 +1,78 @@
 {
-  "mode1": {
-    "name": "Excel Mode",
-    "keys": [
-      {
-        "key_1": [
-          {"cmd": ["CTRL", "C"]}
+    "mode1": {
+        "name": "1",
+        "keys": [
+            {
+                "key_1": [
+                    {
+                        "str": "1"
+                    }
+                ]
+            },
+            {
+                "key_2": [
+                    {
+                        "str": "2"
+                    }
+                ]
+            },
+            {
+                "key_3": [
+                    {
+                        "str": "3"
+                    }
+                ]
+            },
+            {
+                "key_4": [
+                    {
+                        "str": "4"
+                    }
+                ]
+            },
+            {
+                "key_5": [
+                    {
+                        "str": "5"
+                    }
+                ]
+            },
+            {
+                "key_6": [
+                    {
+                        "str": "6"
+                    }
+                ]
+            },
+            {
+                "key_7": [
+                    {
+                        "str": "7"
+                    }
+                ]
+            },
+            {
+                "key_8": [
+                    {
+                        "str": "8"
+                    }
+                ]
+            },
+            {
+                "key_9": [
+                    {
+                        "str": "9"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "key_2": [
-          {"cmd": ["CTRL", "V"]}
-        ]
-      },
-      {
-        "key_3": [
-          {"cmd": ["ALT", "ENTER"]}
-        ]
-      },
-      {
-        "key_4": [
-          {"cmd": ["CTRL", "SHIFT", "F"]}
-        ]
-      },
-      {
-        "key_5": [
-          {"cmd": ["CTRL", "V"]},
-          {"str": "."}
-        ]
-      },
-      {
-        "key_6": [
-          {"cmd": ["CTRL", "F"]},
-          {"cmd": ["CTRL", "V"]}
-        ]
-      },
-      {
-        "key_7": [
-          {"cmd": ["BACKSPACE"]},
-          {"str": "1"}
-        ]
-      },
-      {
-        "key_8": [
-          {"cmd": ["BACKSPACE"]},
-          {"str": "0"}
-        ]
-      },
-      {
-        "key_9": [
-          {"str": "6043010"},
-          {"cmd": ["ENTER"]}
-        ]
-      }
-    ]
-  },
-  "mode2": {
-    "name": "Tessy",
-    "keys": [
-      {
-        "key_1": [
-          {"cmd": ["CTRL", "C"]}
-        ]
-      },
-      {
-        "key_2": [
-          {"cmd": ["CTRL", "V"]}
-        ]
-      },
-      {
-        "key_3": [
-          {"cmd": ["ENTER"]}
-        ]
-      },
-      {
-        "key_4": [
-          {"str": "Test Case ID: IT_PDC_00"},
-          {"cmd": ["ENTER"]},
-          {"str": "Overview: "},
-          {"cmd": ["ENTER"]},
-          {"cmd": ["ENTER"]},
-          {"str": "Input:"},
-          {"cmd": ["ENTER"]},
-          {"str": "N/A"},
-          {"cmd": ["ENTER"]},
-          {"cmd": ["ENTER"]},
-          {"str": "Output:"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]},
-          {"str": "- (variable) read from (RTE) by (tessy)"},
-          {"cmd": ["ENTER"]}
-        ]
-      },
-      {
-        "key_5": [
-          {"cmd": ["CTRL", "V"]},
-          {"str": ", "}
-        ]
-      },
-      {
-        "key_6": [
-          {"cmd": ["CTRL", "F"]}
-        ]
-      },
-      {
-        "key_7": [
-          {"cmd": ["CTRL", "C"]},
-          {"cmd": ["CTRL", "F"]},
-          {"cmd": ["CTRL", "V"]}
-        ]
-      },
-      {
-        "key_8": [
-          {"cmd": ["CTRL", "F"]},
-          {"cmd": ["CTRL", "V"]}
-        ]
-      },
-      {
-        "key_9": [
-          {"str": "6043010"},
-          {"cmd": ["ENTER"]}
-        ]
-      }
-    ]
-  },
-  "mode3": {
-    "name": "3",
-    "keys": [
-      {
-        "key_1": [
-          {"str": "LXX11-157"}
-        ]
-      },
-      {
-        "key_2": [
-          {"str": "2"}
-        ]
-      },
-      {
-        "key_3": [
-          {"str": "3"}
-        ]
-      },
-      {
-        "key_4": [
-          {"str": "4"}
-        ]
-      },
-      {
-        "key_5": [
-          {"str": "5"}
-        ]
-      },
-      {
-        "key_6": [
-          {"str": "6"}
-        ]
-      },
-      {
-        "key_7": [
-          {"str": "7"}
-        ]
-      },
-      {
-        "key_8": [
-          {"str": "8"}
-        ]
-      },
-      {
-        "key_9": [
-          {"str": "9"}
-        ]
-      }
-    ]
-  }
+    },
+    "mode2": {
+        "name": "2",
+        "keys": []
+    },
+    "mode3": {
+        "name": "3",
+        "keys": []
+    }
 }
